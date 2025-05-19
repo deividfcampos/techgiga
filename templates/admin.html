@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin - Nova Promoção</title>
+</head>
+<body>
+    <h1>Adicionar Promoção</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label>Nome do Produto: <input type="text" name="nome" required /></label><br /><br />
+        <label>Preço Atual: <input type="number" step="0.01" name="preco_atual" required /></label><br /><br />
+        <label>Preço Antigo (opcional): <input type="number" step="0.01" name="preco_antigo" /></label><br /><br />
+        <label>Link: <input type="url" name="link" required /></label><br /><br />
+        <label>Imagem: <input type="file" name="imagem" accept="image/*" required /></label><br /><br />
+        <button type="submit">Adicionar Promoção</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Promoções</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .grid { display: flex; flex-wrap: wrap; gap: 20px; }
+        .card {
+            border: 1px solid #ccc; border-radius: 10px;
+            padding: 10px; width: 200px; text-align: center;
+        }
+        .card img { max-width: 100%; height: auto; }
+        .antigo { text-decoration: line-through; color: red; margin-right: 10px; }
+        .atual { font-weight: bold; color: green; }
+    </style>
+</head>
+<body>
+    <h1>Promoções</h1>
+    <div class="grid">
+        {% for promo in promocoes %}
+        <div class="card">
+            <img src="{{ url_for('static', filename=promo['imagem'].split('static/')[-1]) }}" alt="{{ promo['nome'] }}" />
+            <h2>{{ promo['nome'] }}</h2>
+            <p>
+                {% if promo['preco_antigo'] %}
+                <span class="antigo">R$ {{ '%.2f'|format(promo['preco_antigo']) }}</span>
+                {% endif %}
+                <span class="atual">R$ {{ '%.2f'|format(promo['preco_atual']) }}</span>
+            </p>
+            <a href="{{ promo['link'] }}" target="_blank">Ver Oferta</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
